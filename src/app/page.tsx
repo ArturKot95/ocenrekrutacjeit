@@ -1,18 +1,138 @@
 "use client";
 
+import { useAuth } from "@/contexts/AuthContext";
+import Link from "next/link";
+
 export default function Home() {
+  const { user, logout } = useAuth();
   return (
     <div className="min-h-screen bg-base-100">
+      {/* Navigation */}
+      <div className="navbar bg-base-100 shadow-lg">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a>Home</a>
+              </li>
+              {user && (
+                <li>
+                  <Link href="/dashboard">Dashboard</Link>
+                </li>
+              )}
+              <li>
+                <a>About</a>
+              </li>
+              <li>
+                <a>Contact</a>
+              </li>
+            </ul>
+          </div>
+          <a className="btn btn-ghost text-xl">DaisyUI App</a>
+        </div>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">
+            <li>
+              <a>Home</a>
+            </li>
+            {user && (
+              <li>
+                <Link href="/dashboard">Dashboard</Link>
+              </li>
+            )}
+            <li>
+              <a>About</a>
+            </li>
+            <li>
+              <a>Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div className="navbar-end">
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="Avatar"
+                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li>
+                  <a>Settings</a>
+                </li>
+                <li>
+                  <button onClick={logout}>Logout</button>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <div className="flex gap-2">
+              <Link href="/login" className="btn btn-primary">
+                Login
+              </Link>
+              <Link href="/register" className="btn btn-outline">
+                Register
+              </Link>
+            </div>
+          )}
+        </div>
+      </div>
+
       {/* Hero Section */}
       <div className="hero min-h-screen bg-gradient-to-br from-primary to-secondary">
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Hello DaisyUI!</h1>
+            <h1 className="mb-5 text-5xl font-bold">
+              {user ? `Welcome, ${user.name}!` : "Hello DaisyUI!"}
+            </h1>
             <p className="mb-5">
-              This is a demonstration of DaisyUI components with Next.js,
-              TypeScript, and Tailwind CSS.
+              {user
+                ? "You are successfully logged in with Appwrite authentication."
+                : "This is a demonstration of DaisyUI components with Next.js, TypeScript, and Tailwind CSS."}
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            {user ? (
+              <div className="space-y-2">
+                <p className="text-sm opacity-80">Email: {user.email}</p>
+                <p className="text-sm opacity-80">User ID: {user.$id}</p>
+              </div>
+            ) : (
+              <button className="btn btn-primary">Get Started</button>
+            )}
           </div>
         </div>
       </div>
@@ -107,9 +227,7 @@ export default function Home() {
                 <span className="label-text">Select Option</span>
               </label>
               <select className="select select-bordered">
-                <option disabled>
-                  Pick one
-                </option>
+                <option disabled>Pick one</option>
                 <option>Option 1</option>
                 <option>Option 2</option>
                 <option>Option 3</option>
