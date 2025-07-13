@@ -1,103 +1,267 @@
-import Image from "next/image";
+"use client";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-base-100">
+      {/* Hero Section */}
+      <div className="hero min-h-screen bg-gradient-to-br from-primary to-secondary">
+        <div className="hero-content text-center text-neutral-content">
+          <div className="max-w-md">
+            <h1 className="mb-5 text-5xl font-bold">Hello DaisyUI!</h1>
+            <p className="mb-5">
+              This is a demonstration of DaisyUI components with Next.js,
+              TypeScript, and Tailwind CSS.
+            </p>
+            <button className="btn btn-primary">Get Started</button>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+      {/* Components Showcase */}
+      <div className="container mx-auto p-8">
+        <h2 className="text-3xl font-bold text-center mb-8">
+          DaisyUI Components
+        </h2>
+
+        {/* Cards Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="card bg-base-100 shadow-xl">
+            <figure>
+              <img
+                src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+                alt="Shoes"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">Card Title</h2>
+              <p>This is a sample card component from DaisyUI.</p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">Buy Now</button>
+              </div>
+            </div>
+          </div>
+
+          <div className="card bg-base-100 shadow-xl">
+            <div className="card-body">
+              <h2 className="card-title">Another Card</h2>
+              <p>Cards can be used to display various types of content.</p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-secondary">Learn More</button>
+              </div>
+            </div>
+          </div>
+
+          <div className="card bg-base-100 shadow-xl">
+            <div className="card-body">
+              <h2 className="card-title">Interactive Card</h2>
+              <p>Cards support various interactive elements.</p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-accent">Action</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Buttons Section */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-bold mb-4">Buttons</h3>
+          <div className="flex flex-wrap gap-2">
+            <button className="btn btn-primary">Primary</button>
+            <button className="btn btn-secondary">Secondary</button>
+            <button className="btn btn-accent">Accent</button>
+            <button className="btn btn-info">Info</button>
+            <button className="btn btn-success">Success</button>
+            <button className="btn btn-warning">Warning</button>
+            <button className="btn btn-error">Error</button>
+            <button className="btn btn-ghost">Ghost</button>
+            <button className="btn btn-link">Link</button>
+          </div>
+        </div>
+
+        {/* Form Section */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-bold mb-4">Form Elements</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="input input-bordered"
+              />
+            </div>
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text">Password</span>
+              </label>
+              <input
+                type="password"
+                placeholder="Enter your password"
+                className="input input-bordered"
+              />
+            </div>
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text">Select Option</span>
+              </label>
+              <select className="select select-bordered">
+                <option disabled>
+                  Pick one
+                </option>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+              </select>
+            </div>
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text">Textarea</span>
+              </label>
+              <textarea
+                className="textarea textarea-bordered"
+                placeholder="Enter your message"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        {/* Alert Section */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-bold mb-4">Alerts</h3>
+          <div className="space-y-4">
+            <div className="alert alert-info">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="stroke-current shrink-0 w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              <span>This is an info alert!</span>
+            </div>
+            <div className="alert alert-success">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="stroke-current shrink-0 h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span>Your purchase has been confirmed!</span>
+            </div>
+            <div className="alert alert-warning">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="stroke-current shrink-0 h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"
+                />
+              </svg>
+              <span>Warning: Invalid email address!</span>
+            </div>
+            <div className="alert alert-error">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="stroke-current shrink-0 h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span>Error! Task failed successfully.</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Badge Section */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-bold mb-4">Badges</h3>
+          <div className="flex flex-wrap gap-2">
+            <div className="badge badge-primary">Primary</div>
+            <div className="badge badge-secondary">Secondary</div>
+            <div className="badge badge-accent">Accent</div>
+            <div className="badge badge-info">Info</div>
+            <div className="badge badge-success">Success</div>
+            <div className="badge badge-warning">Warning</div>
+            <div className="badge badge-error">Error</div>
+            <div className="badge badge-outline">Outline</div>
+          </div>
+        </div>
+
+        {/* Progress Section */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-bold mb-4">Progress Bars</h3>
+          <div className="space-y-4">
+            <progress
+              className="progress progress-primary w-full"
+              value="70"
+              max="100"
+            ></progress>
+            <progress
+              className="progress progress-secondary w-full"
+              value="50"
+              max="100"
+            ></progress>
+            <progress
+              className="progress progress-accent w-full"
+              value="90"
+              max="100"
+            ></progress>
+          </div>
+        </div>
+
+        {/* Modal Trigger */}
+        <div className="text-center">
+          <button
+            className="btn btn-primary"
+            onClick={() =>
+              (
+                document.getElementById("my_modal_1") as HTMLDialogElement
+              )?.showModal()
+            }
+          >
+            Open Modal
+          </button>
+        </div>
+      </div>
+
+      {/* Modal */}
+      <dialog id="my_modal_1" className="modal">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">Hello!</h3>
+          <p className="py-4">This is a modal dialog from DaisyUI.</p>
+          <div className="modal-action">
+            <form method="dialog">
+              <button className="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 }
