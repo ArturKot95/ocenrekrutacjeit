@@ -46,6 +46,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       const currentUser = await account.get();
       setUser(currentUser);
     } catch {
+      // If there's an error getting the user, they're not authenticated
       setUser(null);
     } finally {
       setLoading(false);
@@ -54,6 +55,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const login = async (email: string, password: string) => {
     try {
+      // First check if user is already logged in
+      const currentUser = await account.get();
+      if (currentUser) {
+        // User is already logged in, just update the state
+        setUser(currentUser);
+        return;
+      }
+
+      // If not logged in, create a new session
       await account.createEmailPasswordSession(email, password);
       await checkUser();
     } catch (error) {

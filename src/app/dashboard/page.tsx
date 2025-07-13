@@ -5,7 +5,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import Link from "next/link";
 
 export default function DashboardPage() {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
 
   return (
     <ProtectedRoute>
@@ -41,7 +41,7 @@ export default function DashboardPage() {
                   <a>Settings</a>
                 </li>
                 <li>
-                  <Link href="/">Logout</Link>
+                  <button onClick={logout}>Logout</button>
                 </li>
               </ul>
             </div>
